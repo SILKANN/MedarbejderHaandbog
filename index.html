@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medarbejderhåndbog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Medarbejderhåndbog</h1>
+
+    <div id="toc">
+        <h2>Tappernøje Dagskole</h2>
+        <p id="lastUpdated">Opdateret den: </p>
+        <ul id="tocList"></ul>
+    </div>
+
+    <div id="popup" class="hidden">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2 id="popupTitle"></h2>
+            <button id="openPdfBtn">Åben PDF</button>
+        </div>
+    </div>
+
+    <div id="pdfViewer" class="hidden">
+        <div class="pdf-content">
+            <span class="close-btn" id="closePdfBtn">&times;</span>
+            <canvas id="pdfCanvas"></canvas>
+            <button id="nextPageBtn" class="hidden">Næste side</button>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+
+</body>
+
+</html>
