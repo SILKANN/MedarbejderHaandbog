@@ -1,37 +1,32 @@
-name: Build and deploy with timestamp
+name: Opdater timestamp og deploy
 
 on:
   push:
     branches: [ main ]
 
 permissions:
-  contents: write  # ✅ Giv Actions tilladelse til at skrive (push)
+  contents: write
 
 jobs:
-  build:
+  update-timestamp:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: 📥 Checkout repo
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # 🛡️ Brug GitHub's auto-token
 
-      - name: Set up Node.js
+      - name: 🔧 Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: Install dependencies
-        run: npm install
+      - name: 🕒 Kør timestamp script
+        run: node scripts/update-timestamp.js
 
-      - name: Run timestamp script
-        run: node update-timestamp.js
-
-      - name: Commit and push timestamp
+      - name: 💾 Commit og push opdateret timestamp
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add build-timestamp.json
-          git commit -m "🔄 Automatisk timestamp-opdatering"
+          git commit -m "🔄 Auto-opdateret timestamp"
           git push
