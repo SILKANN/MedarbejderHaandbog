@@ -1,0 +1,11 @@
+{
+    "name": "medarbejderhaandbog",
+    "version": "1.0.0",
+    "description": "Tappernøje Dagskole Medarbejderhåndbog",
+    "main": "index.html",
+    "scripts": {
+        "update": "node update-timestamp.js"
+    },
+    "author": "Sumle",
+    "license": "MIT"
+}
