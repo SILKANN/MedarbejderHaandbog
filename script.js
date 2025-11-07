@@ -30,10 +30,6 @@ fetch("build-timestamp.json")
     .then((data) => {
         document.getElementById("lastUpdated").innerText =
             `Opdateret den: ${data.updated}`;
-    })
-    .catch(() => {
-        document.getElementById("lastUpdated").innerText =
-            "Opdateringsdato ikke tilgængelig";
     });
 
 // Åbn pop-up med overskrift
